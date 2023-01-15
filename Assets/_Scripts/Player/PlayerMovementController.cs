@@ -6,14 +6,20 @@ using UnityEngine.InputSystem;
 public class PlayerMovementController : MonoBehaviour
 {
     Camera mainCamera;
+
+    Rigidbody rb;
     
     Vector2 inputDir;
-    public float speed;
+    public float movementSpeed;
+    private Vector3 velocity;
+    
+    public bool isGround;
 
     // Start is called before the first frame update
     void Start()
     {
         mainCamera = Camera.main;
+        rb = GetComponent<Rigidbody>();
     }
 
     public void OnMovement(InputValue input)
@@ -38,7 +44,8 @@ public class PlayerMovementController : MonoBehaviour
         right.Normalize();
 
         Vector3 moveDir = forward * inputDir.y + right * inputDir.x;
+        velocity = moveDir * movementSpeed * Time.deltaTime;
 
-        transform.Translate(moveDir * speed * Time.deltaTime);
+        rb.velocity = velocity;
     }
 }
