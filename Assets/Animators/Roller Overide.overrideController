@@ -1,0 +1,13 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Roller Overide
+  m_Controller: {fileID: 9100000, guid: 0491c1f4c746fe34b8554f2921882e24, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: -1156669804829586428, guid: f1c3e033ef515f2449953c0ea50c29e9, type: 3}
+    m_OverrideClip: {fileID: -1156669804829586428, guid: f1c3e033ef515f2449953c0ea50c29e9, type: 3}
