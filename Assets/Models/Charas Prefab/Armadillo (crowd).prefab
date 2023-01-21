@@ -819,7 +819,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3281724742902662851}
   - component: {fileID: 5174910971127964051}
-  m_Layer: 0
+  - component: {fileID: 2234181141880850777}
+  m_Layer: 3
   m_Name: Armadillo (crowd)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -835,7 +836,7 @@ Transform:
   m_GameObject: {fileID: 4388160430324215149}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0.70000005}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 776126630123990753}
@@ -864,6 +865,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2234181141880850777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4388160430324215149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74e8b6a2c703cd04aa3973bc15c563a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  time: 0
 --- !u!1 &4912818152936839023
 GameObject:
   m_ObjectHideFlags: 0

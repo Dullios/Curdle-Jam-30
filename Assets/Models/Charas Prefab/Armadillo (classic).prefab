@@ -1192,16 +1192,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   followTransform: {fileID: 982005334}
+  rig: {fileID: 6187464313805789111}
   body: {fileID: 4874922024895437114}
   armor: {fileID: 1479486018411805108}
   shell: {fileID: 1176815476025069990}
   isGrounded: 1
+  forceMod: 200
   layerMask:
     serializedVersion: 2
     m_Bits: 64
   distance: 0.3
   movementSpeed: 100
-  lookSpeed: 1.5
+  lookSpeed: 3
   jumpForce: 3
   gravityMultiplier: 1.5
   apexHeight: 0.3

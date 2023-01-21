@@ -221,6 +221,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4699699326367129445}
   - component: {fileID: 1718267807755175199}
+  - component: {fileID: 8413467442857198162}
   m_Layer: 6
   m_Name: Ball-stick
   m_TagString: Untagged
@@ -267,6 +268,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8413467442857198162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5364771286649210335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74e8b6a2c703cd04aa3973bc15c563a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  time: 0
 --- !u!1 &6271417306591505210
 GameObject:
   m_ObjectHideFlags: 0
