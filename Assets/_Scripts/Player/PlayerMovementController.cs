@@ -8,11 +8,22 @@ public class PlayerMovementController : MonoBehaviour
     Camera mainCamera;
     Rigidbody rb;
 
+    [Header("Game Objects")]
     public Transform followTransform;
+    public GameObject body;
+    public GameObject armor;
+    public GameObject shell;
 
     public bool isGrounded;
+    
+    [Header("Ground Check Ray")]
+    public LayerMask layerMask;
+    Vector3 origin;
+    RaycastHit hit;
+    public float distance;
 
     Vector2 inputDir;
+    [Header("Movement")]
     public float movementSpeed;
     private Vector3 velocity;
 
@@ -34,8 +45,30 @@ public class PlayerMovementController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.lockState = CursorLockMode.Confined;
+
         mainCamera = Camera.main;
         rb = GetComponent<Rigidbody>();
+
+        shell.SetActive(false);
+
+        isGrounded = true;
+    }
+
+    private void RollUp(bool hasRolled)
+    {
+        if(hasRolled)
+        {
+            body.SetActive(false);
+            armor.SetActive(false);
+            shell.SetActive(true);
+        }
+        else
+        {
+            body.SetActive(true);
+            armor.SetActive(true);
+            shell.SetActive(false);
+        }
     }
 
     public void OnMovement(InputValue input)
@@ -58,23 +91,25 @@ public class PlayerMovementController : MonoBehaviour
             jumpVelocity.y = initialVelocity;
 
             isGrounded = false;
+            RollUp(true);
         }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        PlayerMovement();
         CameraMovement();
 
-        if (!isGrounded)
-            velocity += jumpVelocity;
+        origin = transform.position;
+        origin.y += 0.299f;
+        // Ground Check Raycast
+        if(velocity.y < 0 && Physics.SphereCast(origin, 0.01f, Vector3.down, out hit, distance, layerMask))
+        {
+            Debug.DrawRay(origin, Vector3.down * distance, Color.cyan);
+            isGrounded = true;
+            RollUp(false);
+        }
 
-        ApplyGravity();
-    }
-
-    void PlayerMovement()
-    {
         Vector3 forward = mainCamera.transform.forward;
         Vector3 right = mainCamera.transform.right;
 
@@ -85,8 +120,13 @@ public class PlayerMovementController : MonoBehaviour
 
         Vector3 moveDir = forward * inputDir.y + right * inputDir.x;
         velocity = moveDir * movementSpeed * Time.deltaTime;
+        
+        if (!isGrounded)
+            velocity += jumpVelocity;
 
         rb.velocity = velocity;
+        
+        ApplyGravity();
     }
 
     void CameraMovement()
@@ -132,4 +172,21 @@ public class PlayerMovementController : MonoBehaviour
             jumpVelocity = Vector3.zero;
         }
     }
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Ground"))
+    //    {
+    //        isGrounded = false;
+    //    }
+    //}
+
+    //private void OnTriggerStay(Collider other)
+    //{
+    //    if (other.gameObject.CompareTag("Ground"))
+    //    {
+    //        isGrounded = true;
+    //        //RollUp(false);
+    //    }
+    //}
 }

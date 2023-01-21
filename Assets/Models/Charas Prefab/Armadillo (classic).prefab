@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &982005333
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 982005334}
+  m_Layer: 3
+  m_Name: Follow Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &982005334
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 982005333}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: 0.1369, z: 0.057}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8461271368828275061}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &354178105927716774
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,6 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8846230353017043768}
+  - component: {fileID: 1730324730}
   m_Layer: 3
   m_Name: spine
   m_TagString: Untagged
@@ -35,6 +67,20 @@ Transform:
   m_Father: {fileID: 7919879374371026653}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &1730324730
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354178105927716774}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.0005
+  m_Height: 0.0018
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.00055, z: 0.00025}
 --- !u!1 &1035582067865177496
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,13 +155,14 @@ GameObject:
   - component: {fileID: 1954337783893478172}
   - component: {fileID: 3220329135445853369}
   - component: {fileID: 816311519603568755}
-  m_Layer: 0
+  - component: {fileID: 163833565}
+  m_Layer: 3
   m_Name: Armadillo Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1954337783893478172
 Transform:
   m_ObjectHideFlags: 0
@@ -182,6 +229,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &163833565
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1176815476025069990}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0007000002
+  m_Center: {x: 0, y: -0.000006725287, z: -5.8207675e-11}
 --- !u!1 &1285661207311804939
 GameObject:
   m_ObjectHideFlags: 0
@@ -1053,7 +1113,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8461271368828275061}
   - component: {fileID: 2249411822643392037}
-  m_Layer: 0
+  - component: {fileID: 7286029499057579720}
+  - component: {fileID: 795088365}
+  - component: {fileID: 795088366}
+  m_Layer: 3
   m_Name: Armadillo (classic)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1076,6 +1139,7 @@ Transform:
   - {fileID: 5918333748828528983}
   - {fileID: 6043415583551640714}
   - {fileID: 4001382368571892221}
+  - {fileID: 982005334}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1099,6 +1163,82 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!54 &7286029499057579720
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7206496728118584027}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!114 &795088365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7206496728118584027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 410b88f8d36d7cd49baf425e70b945da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followTransform: {fileID: 982005334}
+  body: {fileID: 4874922024895437114}
+  armor: {fileID: 1479486018411805108}
+  shell: {fileID: 1176815476025069990}
+  isGrounded: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  distance: 0.3
+  movementSpeed: 100
+  lookSpeed: 1.5
+  jumpForce: 3
+  gravityMultiplier: 1.5
+  apexHeight: 0.3
+  distToHeight: 2
+  jumpSpeed: 6
+  initialVelocity: 0
+  gravity: 0
+--- !u!114 &795088366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7206496728118584027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: bc3d7d579b0c9f54ab36c5fc94fcfb10, type: 3}
+  m_NotificationBehavior: 1
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: PlayerActionMap
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &7235562974596461649
 GameObject:
   m_ObjectHideFlags: 0
